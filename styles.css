@@ -3,16 +3,51 @@ body {
 }
 
 #container {
-    width: 280px;
-    height: 280px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    height: 100%;
+}
+
+.frame {
+    height: 100%;
+    display: inline-block;
+    position: relative;
+    width: 400px;
     margin: 0 auto;
+    text-align: center;
+    /*account for display: inline-block;*/
+    font-size: 0;
+}
+
+.helper {
+    height: 100%;
+    vertical-align: middle;
+    display: inline-block;
 }
 
 .cell {
-    height: 50px;
-    width: 50px;
-    padding: 10px;
+    height: 100px;
+    width: 100px;
     background-color: lightgreen;
-    float: left;
+    display: inline-block;
     opacity: 0;
+    font-size: 14px;
+    line-height: 100px;
+}
+
+#cell-0 {
+    background-color: lightyellow;
+}
+
+#cell-1 {
+    background-color: lightblue;
+}
+
+#cell-2 {
+    background-color: lightgreen;
+}
+
+#cell-3 {
+    background-color: lightpink;
 }

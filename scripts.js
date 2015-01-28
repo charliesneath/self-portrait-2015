@@ -7,13 +7,13 @@ var stateHover = {
     scale: 1
 }
 
-var howManySquares = 16
-var lengthOfSide = 70
+var howManySquares = 4;
+var lengthOfSide = 100;
 
 function drawSquares() {
     for (i = 0; i < howManySquares; i++) {
-        var newCell = '<div class="cell" id="cell-' + i + '"></div>';
-        $('#container').append(newCell);
+        var newCell = '<div class="cell" id="cell-' + i + '">' + i + '</div>';
+        $('.frame').append(newCell);
         var currentCell = $('#cell-' + i);
         fadeIn(currentCell, i);
     }
@@ -21,22 +21,27 @@ function drawSquares() {
     $('.cell')
         .mouseenter(
             function() {
-                $(this).css({ transformOrigin: '50% 50%' });
-                $(this).transition( stateHover, 150, 'easeOutQuint' );
+                if (!$(this).hasClass('zoomed') ) {
+                    // $(this).css({ transformOrigin: '50% 50%' });
+                    $(this).transition( stateHover, 150, 'easeOutQuint' );
+                }
             })
         .mouseleave(
             function() {
-                $(this).css({ transformOrigin: '50% 50%' });
-                $(this).transition(stateResting, 200, 'easeOutQuint' );
+                if (!$(this).hasClass('zoomed') ) {
+                    // $(this).css({ transformOrigin: '50% 50%' });
+                    // $(this).transition(stateResting, 200, 'easeOutQuint' );
+                }
             })
 
     $('.cell').toggle(
         function() {
             var xTransformOrigin = getXTransformOrigin($(this).index())  + 'px';
             $(this)
-                // .css({ transformOrigin: getTransformOrigin(this) })
-                .css({ transformOrigin: xTransformOrigin + ' 0px' })
-                .transition({scale: 4, opacity: .2}, 200, 'easeOutQuint' )  
+                .css({ transformOrigin: xTransformOrigin + ' -33.3%' })
+                .transition({scale: 4, opacity: 1}, 200, 'easeOutQuint' )  
+                .css('z-index', '5');
+            $(this).addClass('zoomed');
         },
         function() {
             $(this).transition(stateHover, 100, 'easeOutQuint' );
@@ -58,5 +63,6 @@ function fadeIn(currentCell, i) {
 }
 
 function getXTransformOrigin(i) {
+    i = i - 1
     return (lengthOfSide * i ) / 3
 }
