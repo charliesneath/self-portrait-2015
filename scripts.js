@@ -93,5 +93,5 @@ function setBackgroundColor(currentCell) {
     cellColorId = Math.floor(Math.random() * cellColors.length);
     bgColorId = Math.floor(Math.random() * bgColors.length);
     currentCell.css('background-color', '#' + cellColors[cellColorId]);
-    $('body').css('background-color', '#' + bgColors[bgColorId]);
+    // $('body').css('background-color', '#' + bgColors[bgColorId]);
 }
