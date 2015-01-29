@@ -13,7 +13,7 @@ body {
     height: 100%;
     display: inline-block;
     position: relative;
-    width: 400px;
+    width: 200px;
     margin: 0 auto;
     text-align: center;
     /*account for display: inline-block;*/
@@ -32,8 +32,8 @@ body {
 }
 
 .cell {
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     background-color: lightgreen;
     display: inline-block;
     opacity: 0;

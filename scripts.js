@@ -26,7 +26,7 @@ var stateHover = {
 }
 
 var howManySquares = 16;
-var lengthOfSide = 100;
+var lengthOfSide = 50;
 
 function drawSquares() {
     for (i = 0; i < howManySquares; i++) {
