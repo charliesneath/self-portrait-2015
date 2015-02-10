@@ -60,15 +60,17 @@ function zoomIn(i) {
     
     cell
         .css({ transformOrigin: xTransformOrigin + ' ' + yTransformOrigin})
-        .transition({scale: 4, opacity: 1}, 200, 'easeOutQuint' )  
+        .css('-webkit-transform', 'scale(4,4)')
+        .css('transform', 'scale(4,4)')
         .css('z-index', '1');
 }
 
 function zoomOut(i) {
     cell = $('#cell-' + i);
     cell.removeClass('zoomed');
-    cell.css('z-index', '0');
-    cell.transition(stateResting, 100, 'easeOutQuint' );
+    cell.css('z-index', '0')
+        .css('-webkit-transform', 'scale(1,1)')
+        .css('transform', 'scale(1,1)');
 }
 
 function fadeIn(currentCell, i) {
@@ -92,12 +94,14 @@ function hideScreen() {
 }
 
 function getXTransformOrigin(i) {
+    i = i - 1;
     i = i % 4;
     return (lengthOfSide * i ) / 3
 }
 
 function getYTransformOrigin(i) {
-    return lengthOfSide * parseInt(i / 4) / 3
+    i = i - 1;
+    return lengthOfSide * parseInt(i / 4) / 3;
 }
 
 function setBackgroundColor(currentCell) {
