@@ -31,6 +31,11 @@ body {
     vertical-align: middle;
 }
 
+#ghost-cells {
+    display: inline-block;
+    position: absolute;
+}
+
 .cell {
     height: 100px;
     width: 100px;
@@ -40,6 +45,16 @@ body {
     font-size: 14px;
     line-height: 100px;
     position: relative;
+    box-sizing: border-box;
+}
+
+.ghost-cell {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    opacity: .5;
+    float: left;
+    z-index: 3;
 }
 
 .cell img {
@@ -64,4 +79,12 @@ body {
 
 #cell-3 {
     background-color: lightpink;
+}
+
+#screen {
+    background-color: #000000;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
